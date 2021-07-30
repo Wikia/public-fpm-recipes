@@ -1,0 +1,10 @@
+*.swp
+recipes/*/pkg/
+recipes/*/cache/
+recipes/*/tmp-*/
+packages/
+recipes/consul-wikia-tools/tools/consul_url
+recipes/consul-from-local-fs/gopath/pkg
+recipes/consul-from-local-fs/gopath/bin
+recipes/prometheus-mesos-exporter/gopath
+recipes/prometheus-consul-exporter/gopath
