@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+# create a list of recipes for use in our github actions config
+
+use File::Basename;
+
+my @files = glob("${ARGV[0]}/*");
+foreach my $file (@files){
+    $file = basename($file);
+}
+
+print (join ', ', @files);

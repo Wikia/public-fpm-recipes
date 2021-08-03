@@ -5,6 +5,8 @@ Debs can be downloaded [directly from github](https://github.com/wikia/public-fp
 
 The build is located in [.github/workflows/bionic.yaml](./.github/workflows/bionic.yaml)
 
+if you add a new recipe to the recipe directory, make sure to `make update` to ensure it's in the list built by github actions
+
 ## Debugging
 
 For debugging, it's possible to run the action locally using [nektos/act](https://github.com/nektos/act)
