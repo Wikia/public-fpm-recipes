@@ -1,8 +1,8 @@
 class LibvmodGeoIp2 < FPM::Cookery::Recipe
   # Varnish version this module is targeting
-  target_varnish_version = '6.4'
+  target_varnish_version = '6.6'
   # Upstream commit to build
-  upstream_commit_hash = '7a25db5f3e9b8c428d754b4d59c38fbe2bc2f80e'
+  upstream_commit_hash = 'ddfc14ea70e489517dfa3200fc2f2ae8b3b809ac'
 
   homepage 'https://github.com/fgsch/libvmod-geoip2'
   source 'https://github.com/fgsch/libvmod-geoip2',

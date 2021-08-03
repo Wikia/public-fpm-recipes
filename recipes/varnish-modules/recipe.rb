@@ -1,8 +1,8 @@
 class VarnishModules < FPM::Cookery::Recipe
   # Varnish version these modules are compatible with
-  target_varnish_version = '6.4'
+  target_varnish_version = '6.6'
   # Upstream version of varnish-modules to build
-  upstream_modules_version = '0.16.0'
+  upstream_modules_version = '0.18.0'
 
   homepage 'https://github.com/varnish/varnish-modules'
   source "https://github.com/varnish/varnish-modules/releases/download/#{upstream_modules_version}/varnish-modules-#{upstream_modules_version}.tar.gz"
