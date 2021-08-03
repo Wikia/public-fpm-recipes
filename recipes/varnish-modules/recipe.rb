@@ -5,7 +5,7 @@ class VarnishModules < FPM::Cookery::Recipe
   upstream_modules_version = '0.18.0'
 
   homepage 'https://github.com/varnish/varnish-modules'
-  source "https://github.com/varnish/varnish-modules/releases/download/#{upstream_modules_version}/varnish-modules-#{upstream_modules_version}.tar.gz"
+  source "https://github.com/varnish/varnish-modules/archive/refs/tags/#{upstream_modules_version}.tar.gz"
   # upstream doesn't provide checksums, so they must be calculated by us :(
   sha256 'bab1cbcad6ab77a5cf75af51b15f666ff15cf77a50b04031f399dca8e95d05de'
 
