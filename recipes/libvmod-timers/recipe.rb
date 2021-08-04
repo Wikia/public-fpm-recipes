@@ -1,6 +1,6 @@
 class LibvmodTimers < FPM::Cookery::Recipe
   # Varnish version this module is targeting
-  target_varnish_version = '6.4'
+  target_varnish_version = '6.6'
   # Upstream commit to build
   upstream_commit_hash = '5d5bcf1df87ebb5cc70e9b8a0c56bcd04d2b1415'
 

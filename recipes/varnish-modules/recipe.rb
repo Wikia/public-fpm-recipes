@@ -1,13 +1,13 @@
 class VarnishModules < FPM::Cookery::Recipe
   # Varnish version these modules are compatible with
-  target_varnish_version = '6.4'
+  target_varnish_version = '6.6'
   # Upstream version of varnish-modules to build
-  upstream_modules_version = '0.16.0'
+  upstream_modules_version = '0.18.0'
 
   homepage 'https://github.com/varnish/varnish-modules'
-  source "https://github.com/varnish/varnish-modules/releases/download/#{upstream_modules_version}/varnish-modules-#{upstream_modules_version}.tar.gz"
+  source "https://github.com/varnish/varnish-modules/archive/refs/tags/#{upstream_modules_version}.tar.gz"
   # upstream doesn't provide checksums, so they must be calculated by us :(
-  sha256 'bab1cbcad6ab77a5cf75af51b15f666ff15cf77a50b04031f399dca8e95d05de'
+  sha256 'b226d3272bc92fb46175c417aca5a8c5f820baa2868961cae7d832b561fc159e'
 
   name 'varnish-modules'
   version "#{target_varnish_version}" # we use supported varnish version for our package versioning
@@ -22,6 +22,7 @@ class VarnishModules < FPM::Cookery::Recipe
   build_depends 'varnish-dev'
 
   def build
+    safesystem "./bootstrap"
     configure
     make
   end

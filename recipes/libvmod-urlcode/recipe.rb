@@ -1,8 +1,8 @@
 class LibvmodUrlcode < FPM::Cookery::Recipe
   # Varnish version this module is targeting
-  target_varnish_version = '6.4'
+  target_varnish_version = '6.6'
   # Upstream commit to build
-  upstream_commit_hash = 'fbc8318f4ad239452f4aad29b0360e653fd6f257'
+  upstream_commit_hash = '049afc1263684dd24eef8de868d8f7e7c16bf53f'
 
   homepage 'https://github.com/Wikia/libvmod-urlcode'
   source 'https://github.com/Wikia/libvmod-urlcode',
