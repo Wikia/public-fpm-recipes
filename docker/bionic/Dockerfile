@@ -34,7 +34,7 @@ RUN export GNUPGHOME="$(mktemp -d)" && \
     gpg --batch --keyserver keyserver.ubuntu.com --recv-keys $VARNISH_APT_KEY && \
     gpg --batch --export export $VARNISH_APT_KEY > /etc/apt/trusted.gpg.d/varnish.gpg && \
     gpgconf --kill all && \
-    echo deb https://packagecloud.io/varnishcache/varnish64/ubuntu/ bionic main > /etc/apt/sources.list.d/varnish.list
+    echo deb https://packagecloud.io/varnishcache/varnish66/ubuntu/ bionic main > /etc/apt/sources.list.d/varnish.list
 
 # run final apt update after setting up all apt repos
 RUN apt-get update
