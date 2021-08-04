@@ -22,6 +22,7 @@ class VarnishModules < FPM::Cookery::Recipe
   build_depends 'varnish-dev'
 
   def build
+    safesystem "./bootstrap"
     configure
     make
   end

@@ -15,3 +15,7 @@ get-act:
 # update the list of packages in the github actions yaml
 update:
 	sed -i .bak -e 's@pkg: \[.*\]@pkg: [$(shell script/listpkg $(CURDIR)/recipes)]@' "$(CURDIR)/.github/workflows/bionic.yaml"
+
+local-docker:
+	docker build docker/bionic/ -t deb-build
+	docker run -it --rm -v $(CURDIR)/recipes:/app/recipes --name deb-build --entrypoint /bin/bash deb-build
