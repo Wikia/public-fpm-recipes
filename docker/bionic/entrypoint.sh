@@ -10,4 +10,5 @@ rm *.deb
 rm -r out
 mkdir out
 mv recipes/*/pkg/*.deb out || mv recipes/*/pkg/* out
-echo "::set-output name=path::$(ls out/*)"
+cd out
+echo "::set-output name=path::$(ls *)"
