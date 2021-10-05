@@ -9,7 +9,7 @@ debug-shell:
 # install "act" bin for local testing
 get-act:
 	# local actions broken https://github.com/nektos/act/issues/756
-	go install github.com/nektos/act@v0.2.23
+	go install github.com/nektos/act@v0.2.24
 	sudo ln -s $(HOME)/go/bin/act /usr/local/bin/
 
 # update the list of packages in the github actions yaml

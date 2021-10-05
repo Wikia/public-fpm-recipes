@@ -7,5 +7,7 @@ fpm-cook package
 cd /app
 
 rm *.deb
-mv recipes/*/pkg/*.deb .
-echo "::set-output name=path::$(ls *.deb)"
+rm -r out
+mkdir out
+mv recipes/*/pkg/*.deb out || mv recipes/*/pkg/* out
+echo "::set-output name=path::$(ls out/*)"

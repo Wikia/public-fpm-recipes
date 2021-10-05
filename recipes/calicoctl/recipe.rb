@@ -1,7 +1,7 @@
 class Calicoctl < FPM::Cookery::Recipe
 	homepage 'https://github.com/projectcalico/calicoctl'
 	source 'https://github.com/projectcalico/calicoctl/releases/download/v3.20.2/calicoctl'
-	md5 '5663fbc1bdb68f4e8c0accccbfb808c8'
+	md5 'ce8f9cedbee0f8cd0d6173f7122e88fd'
 
 	name 'calicoctl'
 	version '3.20.2-wikia1'
