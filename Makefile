@@ -1,6 +1,7 @@
+TOKEN="" #put your github token here
 # run "act" locally
 build:
-	bash -c "time act"
+	bash -c "time act -s GITHUB_TOKEN=$(TOKEN)"
 
 # get a shell in the container
 debug-shell:
