@@ -1,7 +1,10 @@
 class OpenvpnCollisionManager < FPM::Cookery::Recipe
+  upstream_commit_hash = '41403633aadbda4e50a58726e701f90b1e7cca7a'
   homepage 'https://github.com/Wikia/openvpn-collision-manager'
+  sha256 upstream_commit_hash
   source 'https://github.com/Wikia/openvpn-collision-manager',
-         :with => 'git'
+         :with => 'git',
+         :sha => upstream_commit_hash
 
   name 'openvpn-collision-manager'
   description 'openvpn-collision-manager daemon'
@@ -9,29 +12,18 @@ class OpenvpnCollisionManager < FPM::Cookery::Recipe
   version  '0.21'
   revision '1'
 
-  # post_install 'post-install'
-  # pre_install 'pre-install'
-  # pre_uninstall 'pre-uninstall'
-
   build_depends %w(golang-go git)
 
   def install
-    bin.install workdir("tmp-build/gopath/bin/openvpn-collision-manager")
-    # bin.install workdir('gopath/bin/consul')
-    # etc('consul.d').mkdir
-    # etc('init').install_p workdir('consul.conf')
-    #etc('docker/registry').mkdir
-    #var('/var/lib/registry').mkdir
+    prefix('local/sbin').install workdir("tmp-build/gopath/bin/openvpn-collision-manager")
+    etc('systemd/system').install local_path + ('openvpn-collision-manager.service')
+    etc('logrotate.d').install local_path + ('logrotate') => 'openvpn-collision-manager'
   end
 
   def build
     ENV['GOPATH'] = workdir("tmp-build/gopath")
     ENV['GOBIN'] = ENV['GOPATH'] + "/bin"
 
-    #safesystem('go get github.com/tools/godep')
-    #safesystem("git clone https://github.com/docker/distribution.git #{distDir}")
-    #safesystem("cd #{distDir}; git reset --hard v2.2.1")
-    #safesystem("cd #{distDir}; GOPATH=`$GOPATH/bin/godep path`:$GOPATH make PREFIX=#{workdir("tmp-build")} binaries")
     safesystem "make all"
   end
 end
