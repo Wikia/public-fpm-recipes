@@ -10,14 +10,17 @@ class OpenvpnCollisionManager < FPM::Cookery::Recipe
   description 'openvpn-collision-manager daemon'
 
   version  '0.21'
-  revision '1'
+  revision '4'
 
   build_depends %w(golang-go git)
 
+  post_install 'debian/post-install.sh'
+  pre_uninstall 'debian/pre-uninstall.sh'
+
   def install
     prefix('local/sbin').install workdir("tmp-build/gopath/bin/openvpn-collision-manager")
-    etc('systemd/system').install local_path + ('openvpn-collision-manager.service')
     etc('logrotate.d').install local_path + ('logrotate') => 'openvpn-collision-manager'
+    etc('systemd/system').install local_path + ('openvpn-collision-manager.service')
   end
 
   def build
