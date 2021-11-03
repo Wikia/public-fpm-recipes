@@ -16,7 +16,7 @@ class OpenvpnCollisionManager < FPM::Cookery::Recipe
   build_depends %w(golang-go git)
 
   def install
-    bin.install workdir("tmp-build/bin/registry")
+    bin.install workdir("tmp-build/gopath/bin/openvpn-collision-manager")
     # bin.install workdir('gopath/bin/consul')
     # etc('consul.d').mkdir
     # etc('init').install_p workdir('consul.conf')
@@ -26,7 +26,7 @@ class OpenvpnCollisionManager < FPM::Cookery::Recipe
 
   def build
     ENV['GOPATH'] = workdir("tmp-build/gopath")
-    distDir = ENV['GOPATH'] + "/src/github.com/docker/distribution"
+    ENV['GOBIN'] = ENV['GOPATH'] + "/bin"
 
     #safesystem('go get github.com/tools/godep')
     #safesystem("git clone https://github.com/docker/distribution.git #{distDir}")
