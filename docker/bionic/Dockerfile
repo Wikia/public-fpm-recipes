@@ -56,4 +56,6 @@ RUN gem install fpm-cookery --no-ri --no-rdoc
 
 RUN mkdir /app
 COPY entrypoint.sh /app/entrypoint.sh
+
+# entrypoint
 ENTRYPOINT ["/app/entrypoint.sh"]
